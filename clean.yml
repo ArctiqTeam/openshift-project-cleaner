@@ -1,0 +1,23 @@
+--- # clears all non-ocp projects from a OCP cluster
+- hosts: "{{ 1master }}""
+  gather_facts: no 
+  connection: ssh
+  user: "{{ ruser }}"
+  become: yes
+  tasks:
+  - name: ocp login?
+    shell: "oc login -u system:admin"
+    
+  - name: get projects
+    shell: oc get projects --no-headers=true| awk '{print $1}'| egrep -v 'openshift-infra|openshift-node|openshift|logging|kube-system|kube-service-catalog|kube-public|openshift-template-service-broker|default|management-infra|openshift-ansible-service-broker'
+    register: delprjcts
+  
+  - name: message output
+    debug: msg="Below are the projects to be deleted.."
+  - name: output delprjcts
+    debug: var=delprjcts
+    
+  - name: delete non-ocp projects
+    shell: "oc delete project {{ item }}"
+    with_items:
+      - "{{ delprjcts.stdout_lines }}"
