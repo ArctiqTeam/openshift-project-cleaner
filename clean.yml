@@ -3,7 +3,7 @@
   gather_facts: no 
   connection: ssh
   user: "{{ ruser }}"
-  become: yes
+  #become: yes
   tasks:
   - name: ocp login?
     shell: "oc login -u system:admin"
