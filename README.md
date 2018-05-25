@@ -1,6 +1,6 @@
 # openshift-project-cleaner
 
-###Cleanup OpenShift projects
+### Cleanup OpenShift projects
 
 Deletes all non-crucial OpenShift cluster projects, by 
 1) logging in to what should be a system:admin or cluster-admin user
