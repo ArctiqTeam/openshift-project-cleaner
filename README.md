@@ -1,5 +1,6 @@
 # openshift-project-cleaner
-Cleanup OpenShift projects
+
+###Cleanup OpenShift projects
 
 Deletes all non-crucial OpenShift cluster projects, by 
 1) logging in to what should be a system:admin or cluster-admin user
@@ -9,6 +10,8 @@ Deletes all non-crucial OpenShift cluster projects, by
 4) deletes said projects
 
 This is useful for cleaning up lab environments or anywhere that the non-core projects need to be cleared away.
+
+Be aware that while this playbook isn't built to be purely idempotent, if there are no extraneous groups in the cluster, then the delete step fails, as there are no namespaces to delete.
 
 ### HOW TO USE:
 
