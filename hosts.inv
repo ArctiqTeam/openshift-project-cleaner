@@ -1,0 +1,5 @@
+[1master]
+a.single.master.IP
+
+[1master:vars]
+ruser=remote-user
