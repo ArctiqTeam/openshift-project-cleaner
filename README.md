@@ -5,7 +5,7 @@
 Deletes all non-crucial OpenShift cluster projects, by 
 1) logging in to what should be a system:admin or cluster-admin user
 2) gets list of projects and filters out the important ones
-> specifically: openshift-infra, openshift-node, openshift, logging, kube-system, kube-service-catalog, kube-public, openshift-template-service-broker, default, management-infra, openshift-ansible-service-broker, dashai
+> specifically: openshift-infra, openshift-node, openshift, logging, kube-system, kube-service-catalog, kube-public, openshift-template-service-broker, default, management-infra, openshift-ansible-service-broker, dashai, peometheus-metrics
 3) outputs the projects to be deleted to ansible debug output
 4) deletes said projects
 
@@ -15,7 +15,7 @@ Be aware that while this playbook isn't built to be purely idempotent, if there 
 
 ### HOW TO USE:
 
-0) git clone this repo to your ansible master
+0) git clone this repo to a master server in the cluster.
 
 1) setup the hosts.inv inventory file with a single master IP address and the remote username for ansible-ssh-ing.
 
