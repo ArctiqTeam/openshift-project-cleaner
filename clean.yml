@@ -9,7 +9,7 @@
     shell: "oc login -u system:admin"
     
   - name: get projects
-    shell: oc get projects --no-headers=true| awk '{print $1}'| egrep -v 'dashai|openshift-infra|openshift-node|openshift|logging|kube-system|kube-service-catalog|kube-public|openshift-template-service-broker|default|management-infra|openshift-ansible-service-broker'
+    shell: oc get projects --no-headers=true| awk '{print $1}'| egrep -v 'dashai|prometheus-metrics|openshift-infra|openshift-node|openshift|logging|kube-system|kube-service-catalog|kube-public|openshift-template-service-broker|default|management-infra|openshift-ansible-service-broker'
     register: delprjcts
   
   - name: message output
