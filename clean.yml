@@ -1,5 +1,5 @@
 --- # clears all non-ocp projects from a OCP cluster
-- hosts: "{{ 1master }}""
+- hosts: "{{ 1master }}"
   gather_facts: no 
   connection: ssh
   user: "{{ ruser }}"
